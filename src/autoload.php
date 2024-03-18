@@ -1,7 +1,6 @@
 <?php
 
-use Classes\Task\Task as TaskTask;
-
+use Classes\DbConnexion\DbConnexion;
 
 spl_autoload_register("loadClasses");
 
@@ -25,7 +24,7 @@ require __DIR__ . "/../config.php";
 
 
 if (DB_INITIALIZED == FALSE) {
-    $db = new TaskTask;
+    $db = new DbConnexion;
 
     $db->initializeDB();
 }

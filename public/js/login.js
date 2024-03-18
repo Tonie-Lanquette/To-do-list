@@ -1,6 +1,7 @@
 function loginAccount(){
     let email = document.querySelector(".emailInput").value;
     let password = document.querySelector(".passwordInput").value;
+    let main = document.getElementById("main")
 
     let emailCrendentials = {
     email: email,
@@ -14,6 +15,10 @@ function loginAccount(){
     },
     body: JSON.stringify(emailCrendentials),
   };
+  
+   fetch("./login.php", params)
+    .then((res) => res.text())
+    .then((data) => console.log(data));
 }
 
 
