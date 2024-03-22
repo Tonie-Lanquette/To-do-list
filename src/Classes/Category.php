@@ -1,6 +1,6 @@
 <?php
 
-namespace Classes\getIdCategory;
+namespace src\Classes;
 
 class Category{
 

@@ -1,9 +1,9 @@
-function loginAccount(){
+async function loginAccount(){
     let email = document.querySelector(".emailInput").value;
     let password = document.querySelector(".passwordInput").value;
-    let main = document.getElementById("main")
+    
 
-    let emailCrendentials = {
+    let informations = {
     email: email,
     password: password,
   };
@@ -13,16 +13,31 @@ function loginAccount(){
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify(emailCrendentials),
+    body: JSON.stringify(informations),
   };
   
-   fetch("./login.php", params)
+   fetch("/../../login.php", params)
     .then((res) => res.text())
-    .then((data) => console.log(data));
+    .then((data) =>{
+loginResponse(data)
+console.log(data)} );
+}
+
+function loginResponse(data){
+console.log(data)        
+        if(data === "no account matching"){
+          let toast = document.querySelector(".toast")
+          toast.innerText = data
+        }else {
+          let main = document.getElementById("main")
+          let modalLogin = document.getElementById("modalLogin")
+          main.classList.remove("hidden")
+          modalLogin.classList.add("hidden")
+        }   
 }
 
 
 function creatModal(){
     let creatModal = document.getElementById("creatAccount")
-    creatModal.style.display = "flex"
+    creatModal.classList.remove("hidden")
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Classes\User;
+namespace src\Classes;
 
 class User
 {
@@ -8,12 +8,8 @@ class User
     private $id_user;
     private $firstName_user;
     private $lastName_user;
-    private $email_user;
     private $password_user;
-    private $gdpr_user;
-
-
-
+    private $email_user;
 
     function __construct(array $datas)
     {
@@ -21,6 +17,9 @@ class User
             $this->$key = $value;
         }
     }
+
+
+
 
     /**
      * Get the value of id_user
@@ -77,24 +76,6 @@ class User
     }
 
     /**
-     * Get the value of email_user
-     */
-    public function getEmailUser()
-    {
-        return $this->email_user;
-    }
-
-    /**
-     * Set the value of email_user
-     */
-    public function setEmailUser($email_user): self
-    {
-        $this->email_user = $email_user;
-
-        return $this;
-    }
-
-    /**
      * Get the value of password_user
      */
     public function getPasswordUser()
@@ -113,19 +94,19 @@ class User
     }
 
     /**
-     * Get the value of gdpr_user
+     * Get the value of email_user
      */
-    public function getGdprUser()
+    public function getEmailUser()
     {
-        return $this->gdpr_user;
+        return $this->email_user;
     }
 
     /**
-     * Set the value of gdpr_user
+     * Set the value of email_user
      */
-    public function setGdprUser($gdpr_user): self
+    public function setEmailUser($email_user): self
     {
-        $this->gdpr_user = $gdpr_user;
+        $this->email_user = $email_user;
 
         return $this;
     }

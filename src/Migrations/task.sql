@@ -12,7 +12,6 @@ CREATE TABLE tdl_user(
         firstName Varchar (50) NOT NULL ,
         lastName  Varchar (50) NOT NULL ,
         password  Varchar (255) NOT NULL ,
-        gdpr      TinyText NOT NULL ,
         email     Varchar (255) NOT NULL
 	,CONSTRAINT tdl_user_AK UNIQUE (email)
 	,CONSTRAINT tdl_user_PK PRIMARY KEY (id_user)
@@ -71,4 +70,3 @@ CREATE TABLE tdl_categoriser(
 	,CONSTRAINT tdl_categoriser_tdl_category_FK FOREIGN KEY (id_category) REFERENCES tdl_category(id_category)
 	,CONSTRAINT tdl_categoriser_tdl_task0_FK FOREIGN KEY (id_task) REFERENCES tdl_task(id_task)
 )ENGINE=InnoDB;
-

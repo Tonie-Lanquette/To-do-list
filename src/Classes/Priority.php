@@ -1,6 +1,6 @@
 <?php
 
-namespace Classes\Priority;
+namespace src\Classes;
 
 class Priority
 {
