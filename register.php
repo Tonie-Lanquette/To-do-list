@@ -13,35 +13,34 @@ if (isset($_POST)) {
     $userData = (json_decode($data, true));
 
     $dbConnexion = new DbConnexion();
-    $userManager = new UserRepository($dbConnexion);
+    $userRepository = new UserRepository($dbConnexion);
 
-    if (isset($userData["email_user"]) && isset($userData["password_user"]) && isset($userData["firstName_user"]) && isset($userData["lastName_user"]) && !empty($userData["email_user"]) && !empty($userData["password_user"]) && !empty($userData["firstName_user"]) && !empty($userData["lastName_user"])) {
+    if (isset($userData["email"]) && isset($userData["password"]) && isset($userData["firstName"]) && isset($userData["lastName"]) && !empty($userData["email"]) && !empty($userData["password"]) && !empty($userData["firstName"]) && !empty($userData["lastName"])) {
 
-        $userFirstName = htmlspecialchars($userData["firstName_user"]);
-        $userLastName = htmlspecialchars($userData["lastName_user"]);
-        $userEmail = htmlspecialchars($userData["email_user"]);
-        $userPassword = hash("whirlpool", $userData["password_user"]);
-        var_dump($userPassword);
+        $userFirstName = htmlspecialchars($userData["firstName"]);
+        $userLastName = htmlspecialchars($userData["lastName"]);
+        $userEmail = htmlspecialchars($userData["email"]);
+        $userPassword = hash("whirlpool", $userData["password"]);
 
 
         $userInfos = array(
-            "lastName_user" => $userLastName,
-            "firstName_user" => $userFirstName,
-            "email_user" => $userEmail,
-            "password_user" => $userPassword,
+            "lastName" => $userLastName,
+            "firstName" => $userFirstName,
+            "email" => $userEmail,
+            "password" => $userPassword,
         );
 
         $user = new User($userInfos);
 
 
-        if ($userManager->checkUserExist($user)) {
+        if ($userRepository->checkUserExist($user)) {
             echo "Email already taken";
             return;
         }
 
 
 
-        if ($userManager->register(($user))) {
+        if ($userRepository->register(($user))) {
             $_SESSION["id"] = $user->getIdUser();
             echo "inserted";
         } else {

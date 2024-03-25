@@ -6,14 +6,12 @@ class Task
 {
 
     private $id_task;
-    private $name_task;
-    private $description_task;
-    private $date_task;
-    private $id_user;
+    private $name;
     private $id_category;
-    private $name_category;
+    private $description;
+    private $date;
+    private $id_user;
     private $id_priority;
-    private $name_priority;
 
 
     function __construct(array $datas)
@@ -22,6 +20,7 @@ class Task
             $this->$key = $value;
         }
     }
+
 
     /**
      * Get the value of id_task
@@ -42,55 +41,55 @@ class Task
     }
 
     /**
-     * Get the value of name_task
+     * Get the value of name
      */
-    public function getNameTask()
+    public function getName()
     {
-        return $this->name_task;
+        return $this->name;
     }
 
     /**
-     * Set the value of name_task
+     * Set the value of name
      */
-    public function setNameTask($name_task): self
+    public function setName($name): self
     {
-        $this->name_task = $name_task;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get the value of description_task
+     * Get the value of description
      */
-    public function getDescriptionTask()
+    public function getDescription()
     {
-        return $this->description_task;
+        return $this->description;
     }
 
     /**
-     * Set the value of description_task
+     * Set the value of description
      */
-    public function setDescriptionTask($description_task): self
+    public function setDescription($description): self
     {
-        $this->description_task = $description_task;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get the value of date_task
+     * Get the value of date
      */
-    public function getDateTask()
+    public function getDate()
     {
-        return $this->date_task;
+        return $this->date;
     }
 
     /**
-     * Set the value of date_task
+     * Set the value of date
      */
-    public function setDateTask($date_task): self
+    public function setDate($date): self
     {
-        $this->date_task = $date_task;
+        $this->date = $date;
 
         return $this;
     }
@@ -109,44 +108,6 @@ class Task
     public function setIdUser($id_user): self
     {
         $this->id_user = $id_user;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Get the value of id_category
-     */
-    public function getIdCategory()
-    {
-        return $this->id_category;
-    }
-
-    /**
-     * Set the value of id_category
-     */
-    public function setIdCategory($id_category): self
-    {
-        $this->id_category = $id_category;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of name_category
-     */
-    public function getNameCategory()
-    {
-        return $this->name_category;
-    }
-
-    /**
-     * Set the value of name_category
-     */
-    public function setNameCategory($name_category): self
-    {
-        $this->name_category = $name_category;
 
         return $this;
     }
@@ -170,19 +131,19 @@ class Task
     }
 
     /**
-     * Get the value of name_priority
+     * Get the value of id_category
      */
-    public function getNamePriority()
+    public function getIdCategory()
     {
-        return $this->name_priority;
+        return $this->id_category;
     }
 
     /**
-     * Set the value of name_priority
+     * Set the value of id_category
      */
-    public function setNamePriority($name_priority): self
+    public function setIdCategory($id_category): self
     {
-        $this->name_priority = $name_priority;
+        $this->id_category = $id_category;
 
         return $this;
     }

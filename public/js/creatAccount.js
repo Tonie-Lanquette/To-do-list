@@ -8,10 +8,10 @@ async function register(){
    
 
     let creatUser = {
-        lastName_user : lastName,
-        firstName_user: firstName,
-        email_user: creatEmail,
-        password_user: creatPassword,  
+        lastName : lastName,
+        firstName: firstName,
+        email: creatEmail,
+        password: creatPassword,  
   };
 
   let params = {
@@ -46,8 +46,10 @@ console.log(data)
         }  
         else
         {
-          let toast = document.querySelector(".toast")
-          toast.innerText = data
+          let text = document.querySelector(".toast")
+          let toast = document.getElementById("creatToast")
+          text.innerText = data 
+          toast.classList.remove("hidden")
         } 
 }
 
@@ -60,4 +62,3 @@ function loginModal(){
 
 
 
-    

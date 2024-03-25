@@ -6,10 +6,10 @@ class User
 {
 
     private $id_user;
-    private $firstName_user;
-    private $lastName_user;
-    private $password_user;
-    private $email_user;
+    private $firstName;
+    private $lastName;
+    private $password;
+    private $email;
 
     function __construct(array $datas)
     {
@@ -40,73 +40,73 @@ class User
     }
 
     /**
-     * Get the value of firstName_user
+     * Get the value of firstName
      */
-    public function getFirstNameUser()
+    public function getFirstName()
     {
-        return $this->firstName_user;
+        return $this->firstName;
     }
 
     /**
-     * Set the value of firstName_user
+     * Set the value of firstName
      */
-    public function setFirstNameUser($firstName_user): self
+    public function setFirstName($firstName): self
     {
-        $this->firstName_user = $firstName_user;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     /**
-     * Get the value of lastName_user
+     * Get the value of lastName
      */
-    public function getLastNameUser()
+    public function getLastName()
     {
-        return $this->lastName_user;
+        return $this->lastName;
     }
 
     /**
-     * Set the value of lastName_user
+     * Set the value of lastName
      */
-    public function setLastNameUser($lastName_user): self
+    public function setLastName($lastName): self
     {
-        $this->lastName_user = $lastName_user;
+        $this->lastName = $lastName;
 
         return $this;
     }
 
     /**
-     * Get the value of password_user
+     * Get the value of password
      */
-    public function getPasswordUser()
+    public function getPassword()
     {
-        return $this->password_user;
+        return $this->password;
     }
 
     /**
-     * Set the value of password_user
+     * Set the value of password
      */
-    public function setPasswordUser($password_user): self
+    public function setPassword($password): self
     {
-        $this->password_user = $password_user;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get the value of email_user
+     * Get the value of email
      */
-    public function getEmailUser()
+    public function getEmail()
     {
-        return $this->email_user;
+        return $this->email;
     }
 
     /**
-     * Set the value of email_user
+     * Set the value of email
      */
-    public function setEmailUser($email_user): self
+    public function setEmail($email): self
     {
-        $this->email_user = $email_user;
+        $this->email = $email;
 
         return $this;
     }

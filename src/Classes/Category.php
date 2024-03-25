@@ -2,13 +2,17 @@
 
 namespace src\Classes;
 
-class Category{
+class Category
+{
 
     private $id_category;
-    private $name_category;
+    private $name;
 
-    function __construct()
+    function __construct(array $datas)
     {
+        foreach ($datas as $key => $value) {
+            $this->$key = $value;
+        }
     }
 
 
@@ -23,28 +27,24 @@ class Category{
     /**
      * Set the value of id_category
      */
-    public function setIdCategory($id_category): self
+    public function setIdCategory($id_category)
     {
         $this->id_category = $id_category;
-
-        return $this;
     }
 
     /**
-     * Get the value of name_category
+     * Get the value of name
      */
-    public function getNameCategory()
+    public function getName()
     {
-        return $this->name_category;
+        return $this->name;
     }
 
     /**
-     * Set the value of name_category
+     * Set the value of name
      */
-    public function setNameCategory($name_category): self
+    public function setName($name)
     {
-        $this->name_category = $name_category;
-
-        return $this;
+        $this->name = $name;
     }
 }

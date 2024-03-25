@@ -6,10 +6,14 @@ class Priority
 {
 
     private $id_priority;
-    private $name_priority;
+    private $name;
 
-    function __construct(){}
-
+    function __construct(array $datas)
+    {
+        foreach ($datas as $key => $value) {
+            $this->$key = $value;
+        }
+    }
     /**
      * Get the value of id_priority
      */
@@ -29,19 +33,19 @@ class Priority
     }
 
     /**
-     * Get the value of name_priority
+     * Get the value of name
      */
-    public function getNamePriority()
+    public function getName()
     {
-        return $this->name_priority;
+        return $this->name;
     }
 
     /**
-     * Set the value of name_priority
+     * Set the value of name
      */
-    public function setNamePriority($name_priority): self
+    public function setName($name): self
     {
-        $this->name_priority = $name_priority;
+        $this->name = $name;
 
         return $this;
     }

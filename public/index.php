@@ -8,13 +8,18 @@ use src\Repositories\UserRepository;
 require __DIR__ . "/../src/autoload.php";
 
 $dbConnexion = new DbConnexion();
-$user = new UserRepository($dbConnexion);
+$userRepository = new UserRepository($dbConnexion);
+$userInfos = $userRepository->getUserInfos();
 
 $categoryRepository =   new CategoryRepository($dbConnexion);
 $categories = $categoryRepository->getAllCategories();
 
 $priorityRepository =   new PriorityRepository($dbConnexion);
 $priorities = $priorityRepository->getAllPriorities();
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,12 +69,16 @@ $priorities = $priorityRepository->getAllPriorities();
                             <label for="creatPassword" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold">Password</label>
                         </div>
                         <div class="mt-2">
-                            <input id="creatPassword" name="creatPassword" type="password" autocomplete="current-password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-300 sm:text-sm sm:leading-6 indent-3 creatPasswordInput ">
+                            <input id="creatPassword" name="creatPassword" type="password" autocomplete="current-password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-300 sm:text-sm sm:leading-6 indent-3 creatPasswordInput mb-10">
                         </div>
+                    </div>
+                    <div id="creatToast" class="hidden">
+                        <p class=" toast flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white uppercase text-s font-semibold opacity-80 ">
+                        </p>
                     </div>
 
                     <div>
-                        <button onclick="register()" class="mt-14 mb-10 flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 uppercase text-white text-s font-semibold">Creat account</button>
+                        <button onclick="register()" class="my-10 flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 uppercase text-white text-s font-semibold">Creat account</button>
                     </div>
 
                     <div>
@@ -77,9 +86,11 @@ $priorities = $priorityRepository->getAllPriorities();
                     </div>
 
                 </div>
+
             </div>
+
         </div>
-        <p class="toast text-red w-1/2 h-20 mx-auto"></p>
+
     </div>
 
 
@@ -111,12 +122,16 @@ $priorities = $priorityRepository->getAllPriorities();
                             <label for="password" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold">Password</label>
                         </div>
                         <div class="mt-2">
-                            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-300 sm:text-sm sm:leading-6 indent-3 passwordInput">
+                            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-300 sm:text-sm sm:leading-6 indent-3 passwordInput mb-10">
                         </div>
+                    </div>
+                    <div id="loginToast" class="hidden">
+                        <p id="loginToastText" class=" toast flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white uppercase text-s font-semibold opacity-80 ">
+                        </p>
                     </div>
 
                     <div>
-                        <button onclick="loginAccount()" class=" mt-14 mb-10 flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 uppercase text-white text-s font-semibold">Login</button>
+                        <button onclick="loginAccount()" class=" my-10 flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 uppercase text-white text-s font-semibold">Login</button>
                     </div>
                     <div>
                         <button onclick="creatModal()" class=" mb-10 flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 uppercase text-white text-s font-semibold">Not a member ? Creat an account</button>
@@ -141,17 +156,17 @@ $priorities = $priorityRepository->getAllPriorities();
                     <div class="h-40 w-40 bg-lime-50 my-8 rounded-full"></div>
                     <div class="w-full h-10 bg-lime-50 rounded-full mt-6 text-center pt-2 uppercase text-black text-s font-semibold">
                         <?php
-                        // echo "<p>" . $user->getFirstNameUser() . "</p>" 
+                        echo "<p>" . $userInfos->getFirstName() . "</p>"
                         ?>
                     </div>
                     <div class="w-full h-10 bg-lime-50 rounded-full mt-6 text-center pt-2 uppercase text-black text-s font-semibold">
                         <?php
-                        // echo "<p>" . $user->getLastNameUser() . "</p>" 
+                        echo "<p>" . $userInfos->getLastName() . "</p>"
                         ?>
                     </div>
                 </div>
                 <div class="mt-60 h-10 mb-8 w-4/6 bg-green-600 rounded-full hover:bg-green-500">
-                    <p class="leading-6 pt-2 text-center uppercase text-white text-xs font-bold">Log out</p>
+                    <p class="leading-6 pt-2 text-center uppercase text-white text-xs font-bold" onclick="logout()">Log out</p>
                 </div>
             </div>
 
@@ -159,15 +174,15 @@ $priorities = $priorityRepository->getAllPriorities();
 
             <div class="flex flex-col items-center">
 
-                <form class="flex flex-col w-3/5 bg-green-300 rounded-xl my-10  px-20 items-center" id="addTaskForm" action="" method="POST">
+                <div class="flex flex-col w-3/5 bg-green-300 rounded-xl my-10 px-20 items-center" id="addTaskForm">
                     <p class="uppercase text-black text-s font-bold mb-8 mt-10">Add task :</p>
                     <div class="relative w-full mb-3">
-                        <label class="block uppercase text-black text-xs font-bold mb-2" for="namePriority">Priority :</label>
-                        <select id="namePriority" class="border-0 px-3 py-3 rounded text-sm shadow w-full bg-green-50" name="namePriority" required>
+                        <label class="block uppercase text-black text-xs font-bold mb-2" for="priorityTask">Priority :</label>
+                        <select id="priorityTask" class="border-0 px-3 py-3 rounded text-sm shadow w-full bg-green-50" name="priorityTask" required>
                             <?php
                             foreach ($priorities as $priority) {
                                 echo " <option value=" . $priority->getIdPriority() . ">
-                            " . $priority->getNamePriority() . "</option>";
+                            " . $priority->getName() . "</option>";
                             }
                             ?>
                         </select>
@@ -182,9 +197,9 @@ $priorities = $priorityRepository->getAllPriorities();
                         <select id="categoryTask" class="border-0 px-3 py-3 rounded text-sm shadow w-full bg-green-50" name="categoryTask" required>
                             <?php
                             foreach ($categories as $category) {
-                                echo "  <option value=" . $category->getIdCategory() . ">
-                            " . $category->getNameCategory() . "</option>";
-                            }
+                            ?>
+                                <option value='<?= $category->getIdCategory() ?>'><?= $category->getName() ?></option>";
+                            <?php }
                             ?>
                         </select>
                     </div>
@@ -192,9 +207,10 @@ $priorities = $priorityRepository->getAllPriorities();
                         <label class="block uppercase text-black text-xs font-bold mb-2" for="descriptionTask">Description :</label>
                         <textarea maxlength="300" name="descriptionTask" id="descriptionTask" rows="4" cols="80" class="border-0 px-3 py-3 rounded text-sm shadow w-full bg-green-50" placeholder="Go to the supermarket"></textarea>
                     </div>
-                    <button id="addTask" class="mt-10 h-10 mb-8 w-4/6 bg-green-600 rounded-full hover:bg-green-500 uppercase text-white text-xs font-bold mb-8" type="submit">Submit
+                    <button id="addTask" class="mt-10 h-10 mb-8 w-4/6 bg-green-600 rounded-full hover:bg-green-500 uppercase text-white text-xs font-bold mb-8" onclick="addTask()">Submit
                     </button>
-                </form>
+                    <p id="taskToast" class="toast text-red w-1/2 h-20 mx-auto"></p>
+                </div>
 
 
 
@@ -230,5 +246,6 @@ $priorities = $priorityRepository->getAllPriorities();
 <script src="https://kit.fontawesome.com/91edd70f05.js" crossorigin="anonymous"></script>
 <script src="./js/creatAccount.js"></script>
 <script src="./js/login.js"></script>
+<script src="./js/addTask.js"></script>
 
 </html>

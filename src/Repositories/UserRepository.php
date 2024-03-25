@@ -19,10 +19,10 @@ class UserRepository
     public function register(User $user)
     {
 
-        $firstName = $user->getFirstNameUser();
-        $lastName = $user->getLastNameUser();
-        $password = $user->getPasswordUser();
-        $email = $user->getEmailUser();
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $password = $user->getPassword();
+        $email = $user->getEmail();
 
         try {
             $stmt = $this->pdo->prepare("INSERT INTO  tdl_user VALUES(NULL,?,?,?,?)");
@@ -37,7 +37,7 @@ class UserRepository
 
     public function checkUserExist(User $user)
     {
-        $email = $user->getEmailUser();
+        $email = $user->getEmail();
 
         try {
             $stmt = $this->pdo->query("SELECT * FROM tdl_user WHERE email = '$email' ");
@@ -69,5 +69,34 @@ class UserRepository
         if (isset($user)) {
             return $stmt->rowCount() == 1;
         }
+    }
+
+    public function getUserInfos()
+    {
+
+        try {
+            $stmt = $this->pdo->query("SELECT * FROM tdl_user");
+
+            while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                $user = new User($row);
+            }
+        } catch (\PDOException $e) {
+            return $user;
+        }
+        return $user;
+    }
+
+    public function getUserByEmail($email)
+    {
+        try {
+            $stmt = $this->pdo->query("SELECT * FROM tdl_user WHERE email = '$email'");
+
+            while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                $user = new User($row);
+            }
+        } catch (\PDOException $e) {
+            return $user;
+        }
+        return $user;
     }
 }

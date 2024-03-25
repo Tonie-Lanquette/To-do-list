@@ -2,39 +2,37 @@
 
 namespace src\Repositories;
 
-
+use src\Classes\DbConnexion;
+use src\Classes\Task;
 
 class TaskRepository
 {
 
-    private $DB;
+    private $pdo;
 
-    public function __construct()
+    public function __construct(DbConnexion $dbConnexion)
     {
-        $database = new Database;
-        $this->DB = $database->getDB();
-
-        require_once __DIR__ . '/../../config.php';
+        $this->pdo = $dbConnexion->getPDO();
     }
 
-    public function creatTask(Task $task)
+    public function addTask(Task $task)
     {
 
-        $sql = "INSERT INTO  tdl_task (id_task, name, description, date, id_user, id_priority	) VALUES (:id_task, :name, :description, :date, :id_user, :id_priority)";
+        $name = $task->getName();
+        $idCategory = $task->getIdCategory();
+        $description = $task->getDescription();
+        $date = $task->getDate();
+        $idUser = $task->getIdUser();
+        $idPriority =  $task->getIdPriority();
 
+        try {
+            $stmt = $this->pdo->prepare("INSERT INTO tdl_task VALUES(NULL, ?, ?, ?, ?,?,?)");
 
-        $statement = $this->DB->prepare($sql);
+            $stmt->execute([$name, $idCategory, $description, $date, $idUser, $idPriority]);
 
-        $retour = $statement->execute([
-            ':id_task' => $task->getIdTask(),
-            ':name' => $task->getNameTask(),
-            ':description' => $task->getDescriptionTask(),
-            ':date' => $task->getDateTask(),
-            ':id_user' => $task->getIdUser(),
-            ':id_priority' => $task->getIdPriority(),
-
-        ]);
-
-        return $retour;
+            return $stmt->rowCount() == 1;
+        } catch (\PDOException $e) {
+            var_dump($e);
+        }
     }
 };

@@ -25,10 +25,20 @@ console.log(data)} );
 
 function loginResponse(data){
 console.log(data)        
-        if(data === "no account matching"){
-          let toast = document.querySelector(".toast")
-          toast.innerText = data
-        }else {
+        if(data === "No account found"){
+          let text = document.getElementById("loginToastText")
+          let toast = document.getElementById("loginToast")
+          text.innerText = data 
+          toast.classList.remove("hidden")
+        }
+        else if(data==='Some input are empty') 
+        {
+          let text = document.getElementById("loginToastText")
+          let toast = document.getElementById("loginToast")
+          text.innerText = data 
+          toast.classList.remove("hidden")
+        }
+        else {
           let main = document.getElementById("main")
           let modalLogin = document.getElementById("modalLogin")
           main.classList.remove("hidden")
