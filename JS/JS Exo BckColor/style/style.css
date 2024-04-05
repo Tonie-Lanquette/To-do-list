@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+}
+
+.cadre {
+    width: 40%;
+    height: 300px;
+    background-color: whitesmoke;
+    border: solid 8px grey;
+    border-radius: 25px;
+    margin: 250px 30%;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+#choice {
+    margin: 10px 2%;
+
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 1</title>
+</head>
+
+<body>
+
+    <button onclick="request()">Se connecter au serveur</button>
+    <div id="request"></div>
+
+</body>
+
+<script src="./script.js"></script>
+
+</html>

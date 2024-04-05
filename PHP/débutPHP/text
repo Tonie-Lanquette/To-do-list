@@ -1,0 +1,37 @@
+# Activité algorithmie avec PHP :
+
+- [X] Vérifier que l’install de wampp existe et est fonctionnelle.
+  - [X] Nouveau projet = nouveau GIT = nouveau dossier (clonage) = nouveau virtualHost = nouvelle installation
+  - [X] Démarrer avec un nouveau projet «Apprentissage PHP»
+- [X] découverte de quelques fonctions de base :
+  - [X] echo
+  - [X] déclaration de variable
+  - [X] activité simple : afficher bonjour prenom.
+  - [X] conditions
+- [X] activité : si prénom == « le vôtre », alors Bonjour, créateur ! Sinon Bonjour prénom
+- [X] déclaration d’une variable tableau [10 prénoms]
+  - [X] activité : si prénom existe dans mon tableau, alors bonjour prénom, sinon bonjour bel(le) inconnu(e)
+- [X] boucle while et for
+  - [X] activité : pour chaque prénom de mon tableau, dire bonjour prénom
+  - [X] activité : tant qu’il y a un prénom dans mon tableau, dire bonjour prenom
+  - [X]X activité : tant que i < 5 , dire bonjour prénom n°[ i ]. S’arrêter après le 5e.
+  - [X] activité : stopper la boucle quand j’arrive au 6e prenom. A faire avec while ou for
+- [] Reprise de l’algorithme du zoo :
+  - [] Utiliser ce tableau :
+  [
+  'lion'=>['viande', TRUE],
+  'loup'=>['viande', FALSE],
+  'tigre'=>['viande', TRUE],
+  'panthère'=>['viande', FALSE],
+  'éléphant'=>['fourrage', TRUE],
+  'girafe'=>['fourrage', FALSE],
+  'antilope'=>['fourrage', FALSE],
+  'gerbille'=>['graines', TRUE],
+  'perroquet'=>['graines', FALSE],
+  'paon'=>['graines', FALSE],
+  ]
+
+  - [X] On vérifie que chaque animal a bien mangé son repas (true ou false)
+  - [X] Si c'est true, dit que tout est OK
+  - [] Si c'est false, on change la valeur à true, en disant qu'on vient de lui donner à manger.
+  - [] POUR Aller plus loin : on met tout ça dans une autre boucle, while. Tant que la variable "validation" est n'est à true, on donne à manger aux animaux. Lorsque tous les animaux ont mangé, on passe la variable validation à true, et on sort de la boucle, en disant que le gardien a fait du bon travail !

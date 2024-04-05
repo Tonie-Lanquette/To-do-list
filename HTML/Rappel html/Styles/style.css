@@ -1,0 +1,18 @@
+.superTitle {
+  color: red;
+}
+
+.Titre2 {
+  color: purple;
+}
+
+/* il est possible de donner une largeur à une image et d'utiliser object-fit: cover pour garder un ratio */
+.img {
+  object-fit: cover;
+  width: 800px;
+  height: ;
+}
+
+#calendar {
+  color: red;
+}

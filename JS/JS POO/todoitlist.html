@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do It List</title>
+
+    <link rel="stylesheet" href="style/todo.css" />
+  </head>
+  <body>
+    <header><h1>Votre liste de tâches</h1></header>
+    <main>
+      <div class="formulaire">
+        <label class="">Titre</label>
+        <input type="text" class="input titre" required="" />
+        <label class="">Description</label>
+        <input type="text" class="input description" required="" />
+        <label class="">Date</label>
+        <input type="date" class="input date" required="" />
+      </div>
+      <div class="button">
+        <button onclick="creatTask()">Créer une tâche</button>
+      </div>
+      <div class="taskList white"></div>
+    </main>
+  </body>
+  <script src="js/scripttodo.js"></script>
+</html>

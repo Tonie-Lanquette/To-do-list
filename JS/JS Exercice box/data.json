@@ -1,0 +1,22 @@
+{
+  "apprenants": [
+    {
+      "nom": "Lanquette",
+      "prénom": "Tonie",
+      "age": 22
+    },
+    {
+      "nom": "Burtaux",
+      "prénom": "Salomé",
+      "age": 32
+    }
+  ]
+}
+
+{"livre":{
+    "titre":"TitreDuLivre",
+    "auteur":"AuteurDuLivre",
+    "publication": 2024,
+    "genres":["genre1", "genre2", "genre3"]
+    },
+}

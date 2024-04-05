@@ -1,0 +1,11 @@
+.iceImg {
+  width: 10%;
+  height: 30vh;
+  object-fit: cover;
+}
+.articleImage {
+  width: 50%;
+  height: 50vh;
+  margin: 30px 25%;
+  object-fit: cover;
+}

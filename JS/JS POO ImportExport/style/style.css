@@ -1,0 +1,20 @@
+.barre {
+    z-index: -1;
+    border: 1px solid black;
+    height: 20px;
+    margin: 0 30%;
+    position: relative;
+    background-color: rgb(115, 115, 115);
+}
+
+.barre div {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+}
+
+.barre p {
+    position: relative;
+    z-index: 8;
+    margin: 0;
+}

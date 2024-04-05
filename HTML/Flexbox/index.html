@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex box like ice</title>
+    <link
+      rel="shortcut icon"
+      href="./medias/iceCream.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <h1>Les flexboxs</h1>
+    <p>
+      Ceci est un cours sur les flexboxs, pour un cours sur la navigation
+      <a href="./navigation.html#Cats"> cliquez ici</a>
+    </p>
+    <h2>
+      Par défaut, le flux du document est orienté de haut en bas. Les éléments,
+      s'additionnent verticalement
+    </h2>
+    <div class="container">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+
+    <h2>
+      Si on veut disposer les éléments de manière horizontale, il est possible
+      d'utiliser le display:flex sur le parent des éléments à mettre
+      horizontalement
+    </h2>
+    <div class="container flex">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+    <h2>
+      On peut choisir la direction de la disposition flex ( flex-direction) ,
+      ici un column-reverse
+    </h2>
+    <div class="container flex column-reverse">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+    <h2>Ici , un row-reverse</h2>
+    <div class="container flex row-reverse">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+
+    <h2>
+      Il existe plusieurs dispositons de centrage, comme space-around,
+      space-between, start, end etc ...
+      <a
+        target="_blank"
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content"
+        >Ici</a
+      >
+      le lien de la documentation pour retrouver les possibilités et/ ou éssayer
+    </h2>
+    <div class="container flex justify-evenly">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+    <h2>
+      Pour centrer sur l'axe secondaire, il faut utiliser la propriété
+      align-items. Si je suis en direction row ( rangée ) l'axe principale sera
+      horizontal, l'axe secondaire vertical
+    </h2>
+    <div class="container flex justify-center align-center">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+
+    <h2>
+      Si il y a trop d'éléments, la page va s'aggrandir, ou le contenu va
+      rapetissir, pour éviter cela, et avoir un retour a la ligne, on peut
+      utiliser la propriété flex-wrap.
+    </h2>
+    <div class="container flex wrap">
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+    </div>
+  </body>
+</html>
